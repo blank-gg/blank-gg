@@ -1,4 +1,5 @@
 import 'package:blank_mobile/themes.dart';
+import 'package:blank_mobile/view/main_area.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/splash',
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(name: '/main', page: () => const MainArea()),
       ],
     );
   }

@@ -6,9 +6,9 @@ const FlexSchemeData _myFlexScheme = FlexSchemeData(
   name: 'Blank',
   description: 'Colorscheme dedicated to Blank (stolen from twitter)',
   light: FlexSchemeColor(
-    primary: Color(0xFF1185EC),
-    primaryContainer: Color(0xFF8ED0F9),
-    secondary: Color(0xFF14171A),
+    primary: Color(0xFF00501E),
+    primaryContainer: Color(0xFFABFE2C),
+    secondary: Color(0xFFE3CFFF),
     secondaryContainer: Color(0xFFC7C0D9),
     tertiary: Color(0xFF657786),
     tertiaryContainer: Color(0xFFAAB8C2),

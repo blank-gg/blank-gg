@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/layout/root.dart';
 
@@ -12,13 +13,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-  static const Duration _splashDuration = Duration(seconds: 2, milliseconds: 30);
+  static const Duration _splashDuration =
+      Duration(seconds: 2, milliseconds: 30);
 
   Timer? _timer;
 
   void onTimerComplete() {
-    print("Timer complete");
+    Get.toNamed("/main");
   }
 
   void startTimer() async {
@@ -34,8 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Root(child: Container(
-        color: Theme.of(context).colorScheme.primary,
-        child: Center(child: Text('Welcome to Blank!', style: TextStyle(fontSize: 40, color: Colors.white)))));
+    return Root(
+        child: Container(
+            color: Theme.of(context).colorScheme.primary,
+            child: const Center(
+                child: Text('Welcome to Blank!',
+                    style: TextStyle(fontSize: 40, color: Colors.white)))));
   }
 }
