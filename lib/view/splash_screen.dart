@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Timer? _timer;
 
   void onTimerComplete() {
-    Get.toNamed("/main");
+    Get.toNamed("/auth");
   }
 
   void startTimer() async {

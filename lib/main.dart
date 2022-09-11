@@ -3,6 +3,7 @@ import 'package:blank_mobile/view/main_area.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'view/auth_screen.dart';
 import 'view/splash_screen.dart';
 
 void main() {
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/splash',
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(name: '/auth', page: () => const AuthScreen()),
         GetPage(name: '/main', page: () => const MainArea()),
       ],
     );
