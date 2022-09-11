@@ -1,3 +1,4 @@
+import 'package:blank_mobile/services/user_services.dart';
 import 'package:blank_mobile/view/main/View_Messages.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/profile/avatar_circle.dart';
@@ -61,7 +62,9 @@ class DmScreen extends StatelessWidget {
               Icons.settings_outlined,
               color: Color(0xff00501E),
             ),
-            onPressed: () {},
+            onPressed: () {
+              UserServices obj = UserServices();
+            },
           ),
         ],
         centerTitle: true,

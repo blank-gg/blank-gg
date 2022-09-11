@@ -1,13 +1,19 @@
+import 'package:blank_mobile/services/user_services.dart';
 import 'package:blank_mobile/themes.dart';
 import 'package:blank_mobile/view/main_area.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:provider/provider.dart';
 import 'view/auth_screen.dart';
 import 'view/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserServices(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -30,4 +36,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
