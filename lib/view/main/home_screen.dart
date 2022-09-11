@@ -1,5 +1,9 @@
+import 'package:blank_mobile/widgets/common/post_card.dart';
 import 'package:blank_mobile/widgets/profile/avatar_circle.dart';
 import 'package:flutter/material.dart';
+
+import '../../models/post.dart';
+import '../../models/user.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,6 +12,45 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var colorScheme = Theme.of(context).colorScheme;
+
+    List<Post> posts = [
+      Post(
+        author: User(
+          username: 'Martha Craig',
+          avatarUrl: 'https://picsum.photos/200',
+          userAddress: '0x678C2ED039a57F19a636A7AC43e6662d1Dc59855',
+        ),
+        content: 'UXR/UX: You can only bring one item to a remote island to assist your research of native use of tools and usability. What do you bring? #TellMeAboutYou',
+        likes: 21,
+      ),
+      Post(
+        author: User(
+          username: 'Maximillian',
+          avatarUrl: 'https://picsum.photos/200',
+          userAddress: '0x7c70cedD7f933A1D558F0124293363678cE9be83',
+        ),
+        content: 'Y’all ready for this next post?',
+        likes: 363,
+      ),
+      Post(
+        author: User(
+          username: 'Tabitha Potter',
+          avatarUrl: 'https://picsum.photos/200',
+          userAddress: '0x084a598c6675181D8cBFa366F4c7B1315d73DAb8',
+        ),
+        content: 'Kobe’s passing is really sticking w/ me in a way I didn’t expect. He was an icon, the kind of person who wouldn’t die this way. My wife compared it to Princess Di’s accident.',
+        likes: 11,
+      ),
+      Post(
+        author: User(
+          username: 'karennne',
+          avatarUrl: 'https://picsum.photos/200',
+          userAddress: '0xE7EC6B8646F95b980eC77AEAb2A62334a09a463F',
+        ),
+        content: 'Name a show where the lead character is the worst character on the show I’ll get Sabrina Spellman',
+        likes: 7461,
+      )
+    ];
 
     return CustomScrollView(slivers: [
       SliverAppBar(
@@ -44,48 +87,16 @@ class HomeScreen extends StatelessWidget {
         leadingWidth: size.width * 0.15,
       ),
       SliverList(
-        delegate: SliverChildListDelegate([
-          Container(
-            height: size.height * 0.2,
-            color: Colors.white,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.blue,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.green,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.yellow,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.purple,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.orange,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.pink,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.brown,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.grey,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.black,
-          ),
-        ]),
+        delegate: SliverChildListDelegate(
+          posts.map((post) => PostCard(
+              authorName: post.author.username,
+              authorAvatarUrl: post.author.avatarUrl,
+              authorAddress: post.author.userAddress,
+              content: post.content,
+              likes: post.likes,
+              height: size.height * 0.281,
+          )).toList(),
+        ),
       )
     ]);
   }
