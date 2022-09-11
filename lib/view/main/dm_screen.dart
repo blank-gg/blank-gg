@@ -2,6 +2,29 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/profile/avatar_circle.dart';
 
+ListTile dm_card(
+    {String Username = "Username",
+    int last_seen_minutes = 99,
+    String date = 'dd/mm/yy',
+    String imageUrl = 'https://bit.ly/3TYaXlZ'}) {
+  return ListTile(
+    title: Text(
+      '$Username',
+      style: TextStyle(fontWeight: FontWeight.w500),
+    ),
+    subtitle: Text('Last message $last_seen_minutes m ago'),
+    leading: CircleAvatar(
+      backgroundImage: NetworkImage(imageUrl),
+      backgroundColor: Colors.indigo,
+      radius: 30,
+    ),
+    trailing: Text(
+      date,
+      style: TextStyle(color: Colors.grey),
+    ),
+  );
+}
+
 class DmScreen extends StatelessWidget {
   const DmScreen({super.key});
 
@@ -29,7 +52,10 @@ class DmScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings_outlined),
+            icon: const Icon(
+              Icons.settings_outlined,
+              color: Color(0xff00501E),
+            ),
             onPressed: () {},
           ),
         ],
@@ -39,46 +65,22 @@ class DmScreen extends StatelessWidget {
       ),
       SliverList(
         delegate: SliverChildListDelegate([
-          Container(
-            height: size.height * 0.2,
-            color: Colors.white,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.blue,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.green,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.yellow,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.purple,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.orange,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.pink,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.brown,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.grey,
-          ),
-          Container(
-            height: size.height * 0.2,
-            color: Colors.black,
-          ),
+          dm_card(
+              Username: 'Pratyush',
+              last_seen_minutes: 30,
+              imageUrl:
+                  'https://media-exp1.licdn.com/dms/image/C5603AQFAmEjqj7F5qg/profile-displayphoto-shrink_800_800/0/1632294235425?e=1668643200&v=beta&t=_mp_3pgvwgJ6Y1CnaPGKsdeBvb7fBfHesHdKqSFtJP8',
+              date: 'dd/mm/yy'),
+          dm_card(
+              Username: 'ali',
+              last_seen_minutes: 20,
+              imageUrl:
+                  'https://media-exp1.licdn.com/dms/image/C5603AQFVEiRCbvcy8g/profile-displayphoto-shrink_800_800/0/1648843981397?e=1668643200&v=beta&t=slG_7snSm6EQl07rEGz5QhJL96HSylLXKveQf4XEGNk',
+              date: 'dd/mm/yy'),
+          dm_card(),
+          dm_card(),
+          dm_card(),
+          dm_card(),
         ]),
       )
     ]);
