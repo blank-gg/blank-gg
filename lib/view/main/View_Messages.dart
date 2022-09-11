@@ -20,6 +20,22 @@ class _View_MessagesState extends State<View_Messages> {
   ].reversed.toList();
   var _controller = TextEditingController();
 
+  Color setBoxColor(Message message) {
+    if (message.isSentByMe == true) {
+      return Color(0xff00501E);
+    } else {
+      return Color(0xffDEE5E1FF);
+    }
+  }
+
+  Color setTextColor(Message message) {
+    if (message.isSentByMe == true) {
+      return Colors.white;
+    } else {
+      return Colors.black;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,10 +73,14 @@ class _View_MessagesState extends State<View_Messages> {
                             ? Alignment.centerRight
                             : Alignment.centerLeft,
                         child: Card(
+                          color: setBoxColor(message),
                           elevation: 8,
                           child: Padding(
                             padding: EdgeInsets.all(12),
-                            child: Text(message.text),
+                            child: Text(
+                              message.text,
+                              style: TextStyle(color: setTextColor(message)),
+                            ),
                           ),
                         ),
                       ))),
