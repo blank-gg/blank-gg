@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'lib/Components/Message.dart';
+// import 'lib/view/Components/Message.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({Key? key}) : super(key: key);
@@ -9,7 +9,8 @@ class MessagePage extends StatefulWidget {
 }
 
 class _MessagePageState extends State<MessagePage> {
-  Message = Message()
+  List<>
+
   @override
   Widget build(BuildContext context) {
     return Container();
