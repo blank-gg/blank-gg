@@ -40,6 +40,8 @@ dependencies:
   bottom_nav_layout: ^3.0.9
   flutter_statusbarcolor_ns: ^0.4.0
   url_launcher: ^6.1.5
+  grouped_list: ^4.2.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
