@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 
-import 'Components/Message.dart';
+import '../../widgets/message.dart';
 
-class View_Messages extends StatefulWidget {
-  const View_Messages({Key? key}) : super(key: key);
+
+class ViewMessages extends StatefulWidget {
+  const ViewMessages({Key? key}) : super(key: key);
 
   @override
-  State<View_Messages> createState() => _View_MessagesState();
+  State<ViewMessages> createState() => _ViewMessagesState();
 }
 
-class _View_MessagesState extends State<View_Messages> {
+class _ViewMessagesState extends State<ViewMessages> {
   List<Message> messages = [
     Message(
         text: 'Yep',
         date: DateTime.now().subtract(Duration(minutes: 1)),
         isSentByMe: false),
   ].reversed.toList();
-  var _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   Color setBoxColor(Message message) {
     if (message.isSentByMe == true) {

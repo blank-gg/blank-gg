@@ -1,5 +1,7 @@
 import 'package:blank_mobile/themes.dart';
+import 'package:blank_mobile/view/main/View_Messages.dart';
 import 'package:blank_mobile/view/main_area.dart';
+import 'package:blank_mobile/view/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/splash', page: () => const SplashScreen()),
         GetPage(name: '/auth', page: () => const AuthScreen()),
         GetPage(name: '/main', page: () => const MainArea()),
+        GetPage(name: '/profile', page: () => ProfileScreen()),
+        GetPage(name: '/chat', page: () => const ViewMessages()),
       ],
     );
   }

@@ -8,6 +8,8 @@ class PostCard extends StatelessWidget {
   final int likes;
   final double height;
 
+  final String? imageUrl;
+
   const PostCard(
       {Key? key,
       required this.authorName,
@@ -16,7 +18,7 @@ class PostCard extends StatelessWidget {
       required this.content,
       required this.likes,
       required this.height,
-  })
+      this.imageUrl})
       : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class PostCard extends StatelessWidget {
         : authorAddress;
 
     return Container(
-        height:  200,
+        height: 200,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           border: Border(
@@ -81,14 +83,35 @@ class PostCard extends StatelessWidget {
                 )
               ]),
             ),
+            // if (imageUrl != null)
+            //   SizedBox(
+            //     width: 100,
+            //     child: Card(
+            //       semanticContainer: true,
+            //       clipBehavior: Clip.antiAliasWithSaveLayer,
+            //       child: Image.network(
+            //         'https://placeimg.com/640/480/any',
+            //         fit: BoxFit.fill,
+            //       ),
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(10.0),
+            //       ),
+            //     ),
+            //   ),
             Row(
               children: [
                 const SizedBox(width: 88),
-                IconButton(icon: const Icon(Icons.favorite_border, size: 20, color: Colors.grey), onPressed: () {}),
+                IconButton(
+                    icon: const Icon(Icons.favorite_border,
+                        size: 20, color: Colors.grey),
+                    onPressed: () {}),
                 const SizedBox(width: 8),
                 Text(likes.toString()),
                 const SizedBox(width: 16),
-                IconButton(icon: const Icon(Icons.ios_share, size: 20, color: Colors.grey), onPressed: () {}),
+                IconButton(
+                    icon: const Icon(Icons.ios_share,
+                        size: 20, color: Colors.grey),
+                    onPressed: () {}),
               ],
             )
           ],

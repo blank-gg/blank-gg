@@ -1,5 +1,5 @@
-import 'package:blank_mobile/view/main/View_Messages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../widgets/profile/avatar_circle.dart';
 
 class DmScreen extends StatelessWidget {
@@ -10,20 +10,17 @@ class DmScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     var colorScheme = Theme.of(context).colorScheme;
     ListTile dm_card(
-        {String Username = "Username",
+        {String username = "Username",
         int last_seen_minutes = 99,
         String date = 'dd/mm/yy',
         String imageUrl = 'https://bit.ly/3TYaXlZ'}) {
       return ListTile(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const View_Messages()),
-          );
+          Get.toNamed("/chat");
         },
         title: Text(
-          '$Username',
-          style: TextStyle(fontWeight: FontWeight.w500),
+          username,
+          style: const TextStyle(fontWeight: FontWeight.w500),
         ),
         subtitle: Text('Last message $last_seen_minutes m ago'),
         leading: CircleAvatar(
@@ -33,7 +30,7 @@ class DmScreen extends StatelessWidget {
         ),
         trailing: Text(
           date,
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         ),
       );
     }
@@ -71,22 +68,18 @@ class DmScreen extends StatelessWidget {
       SliverList(
         delegate: SliverChildListDelegate([
           dm_card(
-              Username: 'Pratyush',
+              username: 'Pratyush',
               last_seen_minutes: 30,
               imageUrl:
                   'https://media-exp1.licdn.com/dms/image/C5603AQFAmEjqj7F5qg/profile-displayphoto-shrink_800_800/0/1632294235425?e=1668643200&v=beta&t=_mp_3pgvwgJ6Y1CnaPGKsdeBvb7fBfHesHdKqSFtJP8',
               date: 'dd/mm/yy'),
           dm_card(
-              Username: 'ali',
+              username: 'ali',
               last_seen_minutes: 20,
               imageUrl:
                   'https://media-exp1.licdn.com/dms/image/C5603AQFVEiRCbvcy8g/profile-displayphoto-shrink_800_800/0/1648843981397?e=1668643200&v=beta&t=slG_7snSm6EQl07rEGz5QhJL96HSylLXKveQf4XEGNk',
               date: 'dd/mm/yy'),
-          dm_card(),
-          dm_card(),
-          dm_card(),
-          dm_card(),
-        ]),
+                  ]),
       )
     ]);
   }

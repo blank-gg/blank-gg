@@ -1,6 +1,7 @@
 import 'package:blank_mobile/widgets/common/post_card.dart';
 import 'package:blank_mobile/widgets/profile/avatar_circle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../models/post.dart';
 import '../../models/user.dart';
@@ -78,9 +79,12 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          const Padding(
-            padding: EdgeInsets.only(right: 8.0),
-            child: AvatarCircle(radius: 24, url: 'https://picsum.photos/200'),
+          GestureDetector(
+            onTap: () => Get.toNamed("/profile"),
+            child: const Padding(
+              padding: EdgeInsets.only(right: 8.0),
+              child: AvatarCircle(radius: 24, url: 'https://picsum.photos/200'),
+            ),
           ),
         ],
         toolbarHeight: size.height * 0.1,
@@ -92,6 +96,7 @@ class HomeScreen extends StatelessWidget {
               authorName: post.author.username,
               authorAvatarUrl: post.author.avatarUrl,
               authorAddress: post.author.userAddress,
+              imageUrl: post.imageUrl,
               content: post.content,
               likes: post.likes,
               height: size.height * 0.281,
