@@ -4,5 +4,6 @@ class Message {
   final String text;
   final DateTime date;
   final bool isSentByMe;
-  const Message(this.text, this.date, this.isSentByMe);
+  const Message(
+      {required this.text, required this.date, required this.isSentByMe});
 }
