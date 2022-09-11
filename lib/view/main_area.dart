@@ -1,3 +1,4 @@
+import 'package:blank_mobile/utils.dart';
 import 'package:blank_mobile/view/main/dm_screen.dart';
 import 'package:blank_mobile/view/main/home_screen.dart';
 import 'package:blank_mobile/view/main/notifications_screen.dart';
@@ -11,6 +12,11 @@ class MainArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var colorScheme = Theme.of(context).colorScheme;
+
+    changeStatusBarColor(colorScheme.background);
+    changeNavigationBarColor(colorScheme.background);
+
     return Root(
         child: BottomNavLayout(
       pages: [
@@ -23,19 +29,21 @@ class MainArea extends StatelessWidget {
         onTap: (index) => onTap(index),
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        elevation: 20,
         items: [
           const BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
               activeIcon: Icon(Icons.home),
-              label: ''),
+              label: 'Home',
+            ),
           const BottomNavigationBarItem(
               icon: Icon(Icons.notifications_outlined),
               activeIcon: Icon(Icons.notifications),
-              label: ''),
+              label: 'Notifications'),
           const BottomNavigationBarItem(
               icon: Icon(Icons.mail_outlined),
               activeIcon: Icon(Icons.mail),
-              label: ''),
+              label: 'Direct Messages'),
         ],
       ),
       savePageState: true,

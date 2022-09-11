@@ -13,10 +13,10 @@ class NotificationsScreen extends StatelessWidget {
     return CustomScrollView(slivers: [
       SliverAppBar(
         automaticallyImplyLeading: false,
-        elevation: 1,
+        elevation: 5,
         scrolledUnderElevation: 1,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: colorScheme.onSurface.withOpacity(0.1)),
+        shape: Border(
+          bottom: BorderSide(color: colorScheme.onSurface.withOpacity(0.1)),
         ),
         title: const Text('Notifications',
             style: TextStyle(
